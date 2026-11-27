@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'edit_profile_screen.dart';
 
 const profileNavy = Color(0xFF173B57);
 const profileTeal = Color(0xFF238B78);
@@ -105,12 +106,19 @@ class ProfileScreen extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                _ProfileOption(
-                  icon: Icons.person_outline,
-                  title: 'المعلومات الشخصية',
-                  subtitle: 'عرض وتعديل بيانات الحساب',
-                  onTap: () => _showMessage(context),
-                ),
+              _ProfileOption(
+  icon: Icons.person_outline,
+  title: 'المعلومات الشخصية',
+  subtitle: 'عرض وتعديل بيانات الحساب',
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const EditProfileScreen(),
+      ),
+    );
+  },
+),
 
                 _ProfileOption(
                   icon: Icons.phone_outlined,

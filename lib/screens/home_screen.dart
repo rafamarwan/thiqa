@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'report_screen.dart';
-import 'result_screen.dart';
+
 import 'help_screen.dart';
 import 'my_reports_screen.dart';
+import 'notifications_screen.dart';
 import 'profile_screen.dart';
+import 'report_screen.dart';
+import 'result_screen.dart';
 
 const homeNavy = Color(0xFF173B57);
 const homeTeal = Color(0xFF238B78);
@@ -80,32 +82,49 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          title: const Row(
-            children: [
-              Icon(
-                Icons.verified_user_outlined,
-                color: homeTeal,
-                size: 27,
-              ),
-              SizedBox(width: 8),
-              Text(
-                'ثِقة',
-                style: TextStyle(
-                  color: homeNavy,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
-              ),
-              SizedBox(width: 5),
-              Text(
-                '| THIQA',
-                style: TextStyle(
-                  color: homeNavy,
-                  fontSize: 13,
-                ),
-              ),
-            ],
+         title: Row(
+  children: [
+    const Icon(
+      Icons.verified_user_outlined,
+      color: homeTeal,
+      size: 27,
+    ),
+    const SizedBox(width: 8),
+    const Text(
+      'ثِقة',
+      style: TextStyle(
+        color: homeNavy,
+        fontWeight: FontWeight.bold,
+        fontSize: 22,
+      ),
+    ),
+    const SizedBox(width: 5),
+    const Text(
+      '| THIQA',
+      style: TextStyle(
+        color: homeNavy,
+        fontSize: 13,
+      ),
+    ),
+    const Spacer(),
+    IconButton(
+      tooltip: 'الإشعارات',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const NotificationsScreen(),
           ),
+        );
+      },
+      icon: const Icon(
+        Icons.notifications_none_rounded,
+        color: homeNavy,
+        size: 27,
+      ),
+    ),
+  ],
+),
         ),
         body: SafeArea(
           child: SingleChildScrollView(
