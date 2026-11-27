@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'report_screen.dart';
 import 'result_screen.dart';
 import 'help_screen.dart';
+import 'my_reports_screen.dart';
+import 'profile_screen.dart';
 
 const homeNavy = Color(0xFF173B57);
 const homeTeal = Color(0xFF238B78);
@@ -260,6 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: 0,
           selectedItemColor: homeTeal,
@@ -272,6 +275,10 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'الرئيسية',
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.assignment_outlined),
+              label: 'بلاغاتي',
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.flag_outlined),
               label: 'تقديم بلاغ',
             ),
@@ -279,20 +286,38 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.help_outline),
               label: 'المساعدة',
             ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              label: 'حسابي',
+            ),
           ],
-                  onTap: (index) {
+          onTap: (index) {
             if (index == 1) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ReportScreen(),
+                  builder: (context) => const MyReportsScreen(),
                 ),
               );
             } else if (index == 2) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
+                  builder: (context) => const ReportScreen(),
+                ),
+              );
+            } else if (index == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
                   builder: (context) => const HelpScreen(),
+                ),
+              );
+            } else if (index == 4) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfileScreen(),
                 ),
               );
             }
